@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+
 import { useRouter } from 'vue-router'
 
+const base = import.meta.env.BASE_URL
 const router = useRouter()
 const video1Ref = ref<HTMLVideoElement | null>(null)
 const video2Ref = ref<HTMLVideoElement | null>(null)
@@ -30,10 +32,10 @@ onMounted(() => {
   <div id="works-page">
     <div id="videobg">
       <video ref="video1Ref" class="video-bg" muted preload="auto">
-        <source src="/video/equ1.mp4" type="video/mp4" />
+        <source :src="base + 'video/equ1.mp4'" type="video/mp4" />
       </video>
       <video ref="video2Ref" class="video-bg" muted loop preload="auto">
-        <source src="/video/equ2.mp4" type="video/mp4" />
+        <source :src="base + 'video/equ2.mp4'" type="video/mp4" />
       </video>
     </div>
     

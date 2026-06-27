@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
+const base = import.meta.env.BASE_URL
 const router = useRouter()
 const videoRef = ref<HTMLVideoElement | null>(null)
 
@@ -20,7 +21,7 @@ onMounted(() => {
   <div id="education-page">
     <div id="videobg">
       <video ref="videoRef" class="video-bg" muted loop preload="auto">
-        <source src="/video/stats.mp4" type="video/mp4" />
+        <source :src="base + 'video/stats.mp4'" type="video/mp4" />
       </video>
     </div>
     

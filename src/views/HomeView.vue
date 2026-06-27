@@ -2,6 +2,7 @@
 import { ref, onMounted, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 
+const base = import.meta.env.BASE_URL
 const router = useRouter()
 const video1Ref = ref<HTMLVideoElement | null>(null)
 const video2Ref = ref<HTMLVideoElement | null>(null)
@@ -59,20 +60,20 @@ onMounted(async () => {
   <div id="home-page">
     <div v-if="showWaves" ref="startwavesRef" id="startwaves">
       <div class="waves">
-        <img src="/img/waves/wave-1.svg" />
-        <img src="/img/waves/wave-2.svg" />
-        <img src="/img/waves/wave-3.svg" />
-        <img src="/img/waves/wave-4.svg" />
-        <img src="/img/waves/wave-5.svg" id="shape" />
+        <img :src="base + 'img/waves/wave-1.svg'" />
+        <img :src="base + 'img/waves/wave-2.svg'" />
+        <img :src="base + 'img/waves/wave-3.svg'" />
+        <img :src="base + 'img/waves/wave-4.svg'" />
+        <img :src="base + 'img/waves/wave-5.svg'" id="shape" />
       </div>
     </div>
 
     <div id="videobg">
       <video ref="video2Ref" class="video-bg" muted loop preload="auto">
-        <source src="/assset/fv_movie2.mp4" type="video/mp4" />
+        <source :src="base + 'assset/fv_movie2.mp4'" type="video/mp4" />
       </video>
       <video ref="video1Ref" class="video-bg" muted preload="auto">
-        <source src="/assset/fv_movie1.mp4" type="video/mp4" />
+        <source :src="base + 'assset/fv_movie1.mp4'" type="video/mp4" />
       </video>
 
       <div v-if="showCenterText" id="centertext">
