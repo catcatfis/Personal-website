@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
-const base = import.meta.env.BASE_URL
+const videoBase = 'https://github.com/catcatfis/Personal-website/releases/download/v1.0/'
 const router = useRouter()
 const videoRef = ref<HTMLVideoElement | null>(null)
 
