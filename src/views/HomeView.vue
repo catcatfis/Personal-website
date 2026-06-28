@@ -3,6 +3,7 @@ import { ref, onMounted, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 
 const base = import.meta.env.BASE_URL
+const videoBase = 'https://github.com/catcatfis/Personal-website/releases/download/v1.0/'
 const router = useRouter()
 const video1Ref = ref<HTMLVideoElement | null>(null)
 const video2Ref = ref<HTMLVideoElement | null>(null)
@@ -61,10 +62,10 @@ onMounted(async () => {
     <div v-if="showWaves" ref="startwavesRef" id="startwaves">
       <div class="waves">
         <img :src="base + 'img/waves/wave-1.svg'" />
-        <img :src="base + 'img/waves/wave-2.svg'" />
-        <img :src="base + 'img/waves/wave-3.svg'" />
-        <img :src="base + 'img/waves/wave-4.svg'" />
-        <img :src="base + 'img/waves/wave-5.svg'" id="shape" />
+         <img :src="base + 'img/waves/wave-2.svg'" />
+         <img :src="base + 'img/waves/wave-3.svg'" />
+         <img :src="base + 'img/waves/wave-4.svg'" />
+         <img :src="base + 'img/waves/wave-5.svg'" id="shape" />
       </div>
     </div>
 

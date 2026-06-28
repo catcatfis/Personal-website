@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 
-const base = import.meta.env.BASE_URL
+const videoBase = 'https://github.com/catcatfis/Personal-website/releases/download/v1.0/'
 const router = useRouter()
 
 const goBack = () => {
@@ -13,7 +13,7 @@ const goBack = () => {
   <div id="skills-page">
     <div id="videobg">
       <video class="video-bg" muted loop autoplay>
-        <source :src="base + 'video/ui2.mp4'" type="video/mp4" />
+        <source :src="videoBase + 'ui2.mp4'" type="video/mp4" />
       </video>
     </div>
     

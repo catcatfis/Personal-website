@@ -21,7 +21,7 @@ onMounted(() => {
   <div id="about-page">
     <div id="videobg">
       <video ref="videoRef" class="video-bg" muted loop preload="auto">
-        <source :src="base + 'video/quest.mp4'" type="video/mp4" />
+        <source :src="videoBase + 'quest.mp4'" type="video/mp4" />
       </video>
     </div>
     

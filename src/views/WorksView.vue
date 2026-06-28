@@ -32,10 +32,10 @@ onMounted(() => {
   <div id="works-page">
     <div id="videobg">
       <video ref="video1Ref" class="video-bg" muted preload="auto">
-        <source :src="base + 'video/equ1.mp4'" type="video/mp4" />
+        <source :src="videoBase + 'equ1.mp4'" type="video/mp4" />
       </video>
       <video ref="video2Ref" class="video-bg" muted loop preload="auto">
-        <source :src="base + 'video/equ2.mp4'" type="video/mp4" />
+        <source :src="videoBase + 'equ2.mp4'" type="video/mp4" />
       </video>
     </div>
     
