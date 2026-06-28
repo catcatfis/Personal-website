@@ -71,10 +71,10 @@ onMounted(async () => {
 
     <div id="videobg">
       <video ref="video2Ref" class="video-bg" muted loop preload="auto">
-        <source :src="base + 'assset/fv_movie2.mp4'" type="video/mp4" />
+        <source :src="videoBase + 'fv_movie2.mp4'" type="video/mp4" />
       </video>
       <video ref="video1Ref" class="video-bg" muted preload="auto">
-        <source :src="base + 'assset/fv_movie1.mp4'" type="video/mp4" />
+        <source :src="videoBase + 'fv_movie1.mp4'" type="video/mp4" />
       </video>
 
       <div v-if="showCenterText" id="centertext">
