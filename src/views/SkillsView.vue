@@ -12,7 +12,7 @@ const goBack = () => {
 <template>
   <div id="skills-page">
     <div id="videobg">
-      <video class="video-bg" muted loop autoplay>
+      <video class="video-bg" muted loop autoplay preload="auto">
         <source :src="videoBase + 'ui2.mp4'" type="video/mp4" />
       </video>
     </div>

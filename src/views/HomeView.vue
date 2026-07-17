@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, nextTick } from 'vue'
+import { ref, onMounted, onActivated, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 
 const base = import.meta.env.BASE_URL
@@ -25,27 +25,24 @@ const navigateTo = (path: string) => {
 }
 
 const startVideo = () => {
-  if (video1Ref.value) {
-    video1Ref.value.play().catch(() => {})
-    video1Ref.value.addEventListener('ended', () => {
-      if (video1Ref.value) video1Ref.value.style.display = 'none'
-      if (video2Ref.value) {
-        video2Ref.value.play().catch(() => {})
-      }
-    })
-  }
+  const v1 = video1Ref.value
+  const v2 = video2Ref.value
+  if (!v1 || !v2) return
+
+  // 确保 video1 可见且从头播放
+  v1.style.display = ''
+  v1.currentTime = 0
+  v2.currentTime = 0
+  v1.play().catch(() => {})
+
+  v1.addEventListener('ended', () => {
+    v1.style.display = 'none'
+    v2.play().catch(() => {})
+  }, { once: true })
 }
 
+// 首次访问：waves 动画后播放视频
 onMounted(async () => {
-  // 从其他页面返回首页时直接跳过 waves 动画
-  if (sessionStorage.getItem('homeVisited') === 'true') {
-    showWaves.value = false
-    showCenterText.value = false
-    await nextTick()
-    startVideo()
-    return
-  }
-
   await nextTick()
 
   if (startwavesRef.value) {
@@ -53,6 +50,17 @@ onMounted(async () => {
       showWaves.value = false
       startVideo()
     }, { once: true })
+  }
+})
+
+// keep-alive 返回首页时：跳过 waves，直接从 video1 开始
+onActivated(async () => {
+  // 首次访问时不跳过（onMounted 会处理）
+  if (sessionStorage.getItem('homeVisited') === 'true') {
+    showWaves.value = false
+    showCenterText.value = false
+    await nextTick()
+    startVideo()
   }
 })
 </script>
@@ -77,7 +85,7 @@ onMounted(async () => {
         <source :src="videoBase + 'fv_movie1.mp4'" type="video/mp4" />
       </video>
 
-      <div v-if="showCenterText" id="centertext">
+      <div v-if="showCenterText && showWaves" id="centertext">
         <h1>李健豪的个人网站</h1>
         <p>中国石油大学(北京)<br />软件工程<br />2028届</p>
       </div>

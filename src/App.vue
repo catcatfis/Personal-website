@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { provide } from 'vue'
+import { provide, onMounted } from 'vue'
 import MusicPlayer from './components/MusicPlayer.vue'
 
 const base = import.meta.env.BASE_URL
@@ -10,10 +10,31 @@ const songs = [
 ]
 
 provide('songs', songs)
+
+// 用隐藏的 video 元素预加载首页视频
+const videoBase = 'https://github.com/catcatfis/Personal-website/releases/download/v1.0/'
+const preloadVideos = () => {
+  ;['fv_movie1.mp4', 'fv_movie2.mp4'].forEach(name => {
+    const v = document.createElement('video')
+    v.src = videoBase + name
+    v.preload = 'auto'
+    v.muted = true
+    v.style.display = 'none'
+    document.body.appendChild(v)
+  })
+}
+
+onMounted(() => {
+  preloadVideos()
+})
 </script>
 
 <template>
-  <router-view />
+  <router-view v-slot="{ Component }">
+    <keep-alive :max="6">
+      <component :is="Component" />
+    </keep-alive>
+  </router-view>
   <MusicPlayer :songs="songs" />
 </template>
 

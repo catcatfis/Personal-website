@@ -1,43 +1,27 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-
 import { useRouter } from 'vue-router'
 
-const base = import.meta.env.BASE_URL
+const videoBase = 'https://github.com/catcatfis/Personal-website/releases/download/v1.0/'
 const router = useRouter()
-const video1Ref = ref<HTMLVideoElement | null>(null)
-const video2Ref = ref<HTMLVideoElement | null>(null)
+const videoRef = ref<HTMLVideoElement | null>(null)
 
 const goBack = () => {
   router.push('/')
 }
 
 onMounted(() => {
-  if (video1Ref.value) {
-    video1Ref.value.play().catch(() => {})
-    video1Ref.value.addEventListener('ended', () => {
-      if (video1Ref.value) video1Ref.value.style.display = 'none'
-      if (video2Ref.value) {
-        video2Ref.value.play().catch(() => {})
-      }
-    })
-  }
-  if (video2Ref.value) {
-    video2Ref.value.play().catch(() => {})
+  if (videoRef.value) {
+    videoRef.value.play().catch(() => {})
   }
 })
 </script>
 
 <template>
   <div id="works-page">
-    <div id="videobg">
-      <video ref="video1Ref" class="video-bg" muted preload="auto">
-        <source :src="videoBase + 'equ1.mp4'" type="video/mp4" />
-      </video>
-      <video ref="video2Ref" class="video-bg" muted loop preload="auto">
-        <source :src="videoBase + 'equ2.mp4'" type="video/mp4" />
-      </video>
-    </div>
+    <video ref="videoRef" class="video-bg" muted loop autoplay preload="auto">
+      <source :src="videoBase + 'equ1.mp4'" type="video/mp4" />
+    </video>
     
     <button class="back-button" @click="goBack">返回首页</button>
     
@@ -64,27 +48,6 @@ onMounted(() => {
           </ul>
         </div>
 
-        <div class="card">
-          <h2>黑马点评</h2>
-          <div class="tech-stack">
-            <span class="tag">Spring Boot</span>
-            <span class="tag">MyBatis-Plus</span>
-            <span class="tag">MySQL 8.0</span>
-            <span class="tag">Redis</span>
-            <span class="tag">Lua</span>
-            <span class="tag">Hutool</span>
-          </div>
-          <p class="arch"><strong>架构：</strong>Nginx 反向代理 + 前后端分离（前端 Vue.js 静态页面部署在 Nginx）</p>
-          <ul class="highlights">
-            <li>基于 Redis Lua 脚本 + Stream 消息队列实现高并发秒杀，Lua 脚本保证库存扣减原子性，Stream 异步下单实现削峰</li>
-            <li>封装通用缓存工具类，针对缓存穿透（空值缓存）、缓存击穿（互斥锁/逻辑过期）提供完整解决方案</li>
-            <li>基于 Redis ZSet 实现 Feed 流推模式（写扩散）与滚动分页，解决动态数据分页的重复/遗漏问题</li>
-            <li>利用 Redis BitMap 实现用户签到统计，单用户月存储仅 31bit，通过位运算统计连续签到</li>
-            <li>基于 Redis GEO 实现附近商户按距离排序查询</li>
-            <li>自研 Redis 分布式锁（setnx + Lua 脚本原子释放），并引入 Redisson 分布式锁保障一人一单</li>
-            <li>设计 Redis 全局唯一 ID 生成器（时间戳位运算 + Redis 自增序列），保证订单 ID 唯一性与趋势递增</li>
-          </ul>
-        </div>
       </div>
     </div>
   </div>
