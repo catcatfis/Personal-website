@@ -14,6 +14,7 @@ const showCenterText = ref(true)
 const navItems = [
   { name: '个人简介', path: '/about' },
   { name: '教育经历', path: '/education' },
+  { name: '实习经历', path: '/internship' },
   { name: '专业技能', path: '/skills' },
   { name: '个人作品', path: '/works' },
   { name: '联系方式', path: '/contact' }

@@ -31,8 +31,9 @@ onMounted(() => {
       <h1>联系方式</h1>
       <div class="card">
         <p>
-          <strong>电话：</strong>19111900894<br />
-          <strong>邮箱：</strong>lbwnb4444@yeah.net<br />
+          <strong>邮箱1：</strong>lbwnb4444@yeah.net<br />
+          <strong>邮箱2：</strong>401059618@qq.com<br />
+          <strong>邮箱3：</strong>401059618l@gmail.com<br />
           <strong>GitHub：</strong>https://github.com/catcatfish<br />
           <strong>微信：</strong>coldcodecatfish987
         </p>

@@ -35,8 +35,8 @@ onMounted(() => {
           <strong>专业：</strong>软件工程（本科）<br />
           <strong>时间：</strong>2024年09月 ~ 2028年06月<br />
           <strong>学制：</strong>全日制<br />
-          <strong>GPA排名：</strong>前25%<br />
-          <strong>主修课程：</strong>Java程序设计、数据库系统、计算机网络等<br />
+          <strong>GPA：3.44 排名：</strong>前27%<br />
+          <strong>主修课程：</strong>Java程序设计、数据结构、数据库系统、计算机网络、软件工程等<br />
           <strong>英语：CET-6</strong>  550分通过
         </p>
       </div>

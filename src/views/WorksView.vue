@@ -29,9 +29,10 @@ onMounted(() => {
       <h1>个人作品</h1>
       <div class="cards-wrapper">
         <div class="card">
-          <h2>MallChat 即时通讯系统</h2>
+          <h2>仿微信智能即时通讯系统</h2>
           <div class="tech-stack">
             <span class="tag">Spring Boot</span>
+            <span class="tag">Langchain4j</span>
             <span class="tag">Netty</span>
             <span class="tag">Vue 3</span>
             <span class="tag">MySQL</span>
@@ -45,6 +46,7 @@ onMounted(() => {
             <li>集成 Redis + Redisson 分布式锁解决用户登录态并发问题，采用 Redis 缓存热点数据</li>
             <li>对接微信开放平台 OAuth2.0 实现扫码登录，完成授权回调、Token 签发、WebSocket 用户绑定的完整链路</li>
             <li>引入 RocketMQ 消息队列异步处理消息广播与系统通知，降低接口响应耗时</li>
+            <li>采用 Langchain4j 实现智能助手功能，支持用户自定义指令与智能回复</li>
           </ul>
         </div>
 
