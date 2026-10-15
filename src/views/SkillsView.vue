@@ -11,27 +11,27 @@ const goBack = () => {
 const skills = [
   {
     title: 'Java',
-    desc: '掌握 Java8-26 新特性，熟悉集合框架、反射、动态代理等核心机制，能运用 Hutool、Lombok 等工具库提高效率'
+    desc: '熟悉Java主要版本新特性，熟悉集合框架、反射、动态代理等核心机制，能运用 Hutool、Lombok等工具库提高效率'
   },
   {
     title: 'Spring Boot',
-    desc: '掌握 Spring Boot3 + MyBatis-Plus 独立开发后端项目，熟悉 Spring Cloud 微服务全家桶，能独立完成微服务项目的拆分治理'
+    desc: '掌握Spring Boot3+MyBatis-Plus 独立开发后端项目，熟悉Spring Cloud 微服务组件与项目的拆分治理'
   },
   {
     title: 'MySQL',
-    desc: '熟悉 MySQL 数据库设计和 SQL 调优，实践过分库分表、索引优化，能使用 Druid 进行 SQL 监控和慢查询分析'
+    desc: '熟悉MySQL数据库设计和 SQL调优，了解分库分表、索引优化,能使用 Druid 进行 SQL监控和慢查询分析'
   },
   {
     title: 'Redis',
-    desc: '熟悉 Redis 缓存中间件，实践过 Caffeine 多级缓存架构、分布式锁、缓存雪崩/穿透解决方案、哨兵集群搭建'
+    desc: '熟悉Redis 缓存中间件，了解 Caffeine 多级缓存架构、分布式锁、缓存雪崩/穿透解决方案、哨兵集群搭建'
   },
   {
     title: 'AI 应用开发',
-    desc: '熟悉 Spring AI、LangChain4j 等 AI 开发框架，独立开发过涉及 RAG、工具调用、MCP、多 Agent 协作的企业级 AI 智能体应用。掌握 Prompt 工程和优化技巧，掌握 MCP Server 和 Agent Skills 的开发和发布。熟悉 Vibe Coding、SDD、Harness Engineering 等多种 AI 编程模式'
+    desc: '熟悉Spring AI、LangChain4j等AI开发框架，个人项目实现了RAG、工具调用、MCP、多 Agent 协作的完整链路、掌握Prompt工程和优化技巧，掌握MCP Server 的封装方式、熟悉多种AI编程模式。熟悉 Vibe Coding、SDD、Harness Engineering 等多种 AI 编程模式'
   },
   {
     title: 'Docker + Nginx',
-    desc: '熟悉 Docker 容器化和 Nginx 反向代理部署，能编写 Dockerfile 打包项目并通过 Serverless 平台快速上线'
+    desc: '能用 Docker 打包部署项目、Nginx 做反向代理与负载均衡；了解 Serverless 平台部署流程'
   }
 ]
 
